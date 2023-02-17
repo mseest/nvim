@@ -6,7 +6,7 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
 	-- Packer can manage itself
 	use 'wbthomason/packer.nvim'
---	use 'folke/tokyonight.nvim'
+	--	use 'folke/tokyonight.nvim'
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.1',
 		-- or                            , branch = '0.1.x',
@@ -44,5 +44,17 @@ return require('packer').startup(function(use)
 			{'L3MON4D3/LuaSnip'},             -- Required
 			{'rafamadriz/friendly-snippets'}, -- Optional
 		}
+	}
+	use {
+		'nvim-lualine/lualine.nvim',
+		event = 'ColorScheme',
+		config = function()
+			require('lualine').setup({
+				options = {
+					--- @usage 'rose-pine' | 'rose-pine-alt'
+					theme = 'rose-pine'
+				}
+			})
+		end
 	}
 end)
